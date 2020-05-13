@@ -1,0 +1,14 @@
+<div class="menu">
+  <table class="table is-narrow is-hoverable is-bordered">
+    <thead>
+      <th>Отдаете</th>
+      <th>Получаете</th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let valuta of valutas">
+        <td (click)="onClickFrom(valuta.cod)">{{ valuta.desq}}</td>
+        <td (click)="onClickTo(valuta.cod)">{{ valuta.desq}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

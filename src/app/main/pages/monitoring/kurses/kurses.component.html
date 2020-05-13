@@ -1,0 +1,18 @@
+<div class="exchange">
+  <table class="table is-striped is-hoverable is-fullwidth">
+    <thead>
+      <th>Обменник</th>
+      <th>Отдаете</th>
+      <th>Получаете</th>
+      <th>Резерв</th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let kurs of kurses">
+        <td>{{ kurs.exName}}</td>
+        <td><b>{{ kurs.ins}}</b> {{ kurs.from }} <small>от {{kurs.minamount}}</small></td>
+        <td><b>{{ kurs.out}}</b> {{ kurs.to }}</td>
+        <td>{{ kurs.amount}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

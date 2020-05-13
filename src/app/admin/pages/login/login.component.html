@@ -1,0 +1,26 @@
+<div class="login-box">
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+    <div class="field">
+      <label class="label">Login</label>
+      <div class="control">
+        <input class="input" type="text" formControlName="login" placeholder="Login">
+      </div>
+    </div>
+
+    <div class="field">
+      <label class="label">Password</label>
+      <div class="control">
+        <input class="input" type="password" formControlName="password" placeholder="Password">
+      </div>
+    </div>
+
+    <div class="control">
+      <button class="button is-info" type="submit" [disabled]="form.invalid">Login</button>
+    </div>
+
+  </form>
+  <div *ngIf="error">
+    {{ error }}
+  </div>
+</div>

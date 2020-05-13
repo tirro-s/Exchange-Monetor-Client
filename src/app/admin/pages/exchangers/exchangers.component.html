@@ -1,0 +1,54 @@
+<div>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="field is-grouped">
+      <div class="field-label is-normal">
+        <label class="label">Обменник</label>
+      </div>
+      <div class="control is-expanded">
+        <input class="input" type="text" formControlName="name">
+      </div>
+      <div class="control">
+        <button class="button is-info" type="submit" [disabled]="form.invalid">Add</button>
+      </div>
+      <div class="control">
+        <button class="button is-info" (click)="onClear()">Clear</button>
+      </div>
+    </div>
+
+
+    <div class="control">
+      <label class="label">Партнерская ссылка</label>
+      <input class="input" type="text" formControlName="partlink">
+    </div>
+
+    <div class="control">
+      <label class="label">Файл курсов</label>
+      <input class="input" type="text" formControlName="xmlpath">
+    </div>
+
+  </form>
+</div>
+
+<div class="main-block">
+  <table class="table is-striped is-hoverable is-fullwidth" *ngIf="!isLoading; else loading">
+    <thead>
+      <th>Обменник</th>
+      <th>Ссылка</th>
+      <th>Файл курсов</th>
+      <th></th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let exch of exchangers">
+        <td class="can-click" (click)="onSelect(exch._id)">{{ exch.name }}</td>
+        <td>{{ exch.partlink }}</td>
+        <td>{{ exch.xmlpath }}</td>
+        <td class="text-to-right">
+          <button class="button is-warning is-small" (click)="onDelete(exch._id)">Del</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <ng-template #loading>
+    <p>Loading...</p>
+  </ng-template>
+</div>

@@ -1,0 +1,10 @@
+<div>
+  <button class="button is-primary" (click)="onUpdate()">Обновить</button>
+  <button class="button is-danger" (click)="onClear()">Очистить</button>
+  <!--<button class="button is-primary" (click)="onUpdate2()">Обновить</button>-->
+</div>
+<div *ngIf="statusArr">
+  <div *ngFor="let status of statusArr">
+    <p>{{ status.exchanger }} - {{ status.result }}</p>
+  </div>
+</div>

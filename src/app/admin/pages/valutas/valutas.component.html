@@ -1,0 +1,52 @@
+<div>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="field is-grouped">
+
+      <div class="field-label is-normal">
+        <label class="label">Код</label>
+      </div>
+      <div class="control is-expanded">
+        <input class="input" type="text" formControlName="cod">
+      </div>
+
+      <div class="field-label is-normal">
+        <label class="label">Валюта</label>
+      </div>
+      <div class="control is-expanded">
+        <input class="input" type="text" formControlName="desq">
+      </div>
+
+      <div class="control">
+        <button type="submit" class="button is-info" [disabled]="form.invalid">Add</button>
+      </div>
+
+      <div class="control">
+        <button class="button is-info" (click)="onClear()">Clear</button>
+      </div>
+
+    </div>
+  </form>
+</div>
+
+<div class="main-block">
+  <table class="table is-striped is-hoverable is-fullwidth"  *ngIf="!isLoading; else loading">
+    <thead>
+      <th>Код</th>
+      <th>Валюта</th>
+      <th></th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let valuta of valutas">
+        <td class="can-click" (click)="onSelect(valuta._id)">{{ valuta.cod }}</td>
+        <td>{{ valuta.desq }}</td>
+        <td class="text-to-right">
+          <button class="button is-warning is-small" (click)="onDelete(valuta._id)">Del</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <ng-template #loading>
+    <p>Loading...</p>
+  </ng-template>
+</div>
